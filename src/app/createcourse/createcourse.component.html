@@ -49,9 +49,8 @@
                                 <ul id="navigation">                                                                                          
                                     <li><a [routerLink]="['/']">Home</a></li>
                                     <li><a [routerLink]="['/about']">About</a></li>
-                                    <li><a href="courses.html">Courses</a></li>
-                                   
-                                  
+                                    <li><a href="courses.html">MyCourses</a></li>
+                                 <!--   <li><a [routerLink]="['/facilitator']">Instructors</a></li>-->
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
                             </nav>
@@ -75,20 +74,75 @@
         </div>
     </div>
     <!-- Header End -->
-  </header>
-  <div class="main-content">
-  <div class="container" style="width:400px">
-    <form #upform="ngForm" >
-    <div style="color: blue; margin-bottom: 20px">
-        <h3></h3><br>
-        <h5>Upload course media files</h5>
+</header>
+<div class="container" style="padding-top: 50px; padding-left: 100px;">
+    <h3>Create Course</h3><br>
+    <form #courseform="ngForm" (ngSubmit)="registerCourse()" >
+                <small class="text-danger" style="font-size: 20px;">{{msg}}</small>
+   
+    <div class="form-group">
+      <!--<div class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Success!</strong> This alert box could indicate a successful or positive action.
+      </div>-->
+            <label for="coursetitle">Course Title:</label>
+          <input type="text" class="form-control" placeholder="Enter Course title" name="coursetitle" required [(ngModel)]="corse.courseTitle"  
+          #coursetitle="ngModel"
+          [class.is-invalid]="coursetitle.invalid && coursetitle.touched">
+          <div *ngIf="coursetitle.errors && coursetitle.invalid && coursetitle.touched">
+              <small class="text-danger" *ngIf="coursetitle.errors.required ">Course title is required</small>
+      
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="instructor">Instructor Name</label>
+            <input type="text" class="form-control" placeholder="Enter instructor name" name="instructor" required [(ngModel)]="corse.instructor" 
+            #instructor="ngModel"
+            [class.is-invalid]="instructor.invalid && instructor.touched">
+            <div *ngIf="instructor.errors && instructor.invalid && instructor.touched">
+                <small class="text-danger" *ngIf="instructor.errors.required ">instructor is required</small>
+            
         
-      </div>
-    
-      <app-form-upload></app-form-upload>
+              </div>
+            </div>
+          <!--  <div class="form-group">
+            <label for="coursetype">Course Type:</label>
+          <input type="text" class="form-control" placeholder="Enter Course type" name="course_type" required [(ngModel)]="corse.course_type"  
+          #course_type="ngModel"
+          [class.is-invalid]="course_type.invalid && course_type.touched">
+          <div *ngIf="course_type.errors && course_type.invalid && course_type.touched">
+              <small class="text-danger" *ngIf="course_type.errors.required ">Course type is required</small>
+      
+           
+          </div>
+            </div>-->
+            <div class="form-group">
+              <label for="brief">Enter Course description</label>
+              <input type="text" class="form-control" placeholder="Enter brief" name="brief" required [(ngModel)]="corse.courseBrief" 
+              #brief="ngModel"
+              [class.is-invalid]="brief.invalid && brief.touched">
+              <div *ngIf="brief.errors && brief.invalid && brief.touched">
+                  <small class="text-danger" *ngIf="brief.errors.required ">Course brief is required</small>
+              
+          
+                </div>
+              </div> 
+              <div class="form-group">
+                <label for="brief">Enter Number of Chapters</label>
+                <input type="text" class="form-control" placeholder="Enter no. of chapters" name="brief" required [(ngModel)]="corse.numofChapters" 
+                #brief="ngModel"
+                [class.is-invalid]="brief.invalid && brief.touched">
+                <div *ngIf="brief.errors && brief.invalid && brief.touched">
+                    <small class="text-danger" *ngIf="brief.errors.required ">Number of chapters is required</small>
+                
+            
+                  </div>
+                </div>       
+          <button type="submit" class="btn btn-dark" >Next</button>
      
+        
+        
     </form>
-    <!--<a routerLink="['/myhomepage']">Exit</a>-->
-  <!-- <app-list-upload></app-list-upload>-->
     </div>
-  </div>
+<app-footer></app-footer>
+

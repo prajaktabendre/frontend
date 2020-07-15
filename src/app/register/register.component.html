@@ -14,7 +14,7 @@
 					
 					<div class="wrap-input100 validate-input m-b-26" >
 						<span class="label-input100">Email id</span>
-						<input type="email" class="input100" placeholder="Enter email address" name="email" [(ngModel)]="user.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+						<input type="email" class="input100" placeholder="Enter email address" name="email" [(ngModel)]="user.email" required 
     #email="ngModel"
     [class.is-invalid]="email.invalid && email.touched">
     <div *ngIf="email.errors && email.invalid && email.touched">

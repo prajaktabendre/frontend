@@ -19,6 +19,10 @@ import { DetailsUploadComponent } from './uploads/details-upload/details-upload.
 import { FormUploadComponent } from './uploads/form-upload/form-upload.component';
 import { ListUploadComponent } from './uploads/list-upload/list-upload.component';
 import { UploadvideoComponent } from './uploadvideo/uploadvideo.component';
+import { FacilitatorComponent } from './facilitator/facilitator.component';
+import { UploadimgComponent } from './uploadimg/uploadimg.component';
+import { CheckfacilitatorComponent } from './checkfacilitator/checkfacilitator.component';
+import { CreatecourseComponent } from './createcourse/createcourse.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +37,11 @@ import { UploadvideoComponent } from './uploadvideo/uploadvideo.component';
     DetailsUploadComponent,
     FormUploadComponent,
     ListUploadComponent,
-    UploadvideoComponent
+    UploadvideoComponent,
+    FacilitatorComponent,
+    UploadimgComponent,
+    CheckfacilitatorComponent,
+    CreatecourseComponent
   ],
   imports: [
         BrowserModule,

@@ -1,9 +1,8 @@
-
 <header>
     <!-- Header Start -->
     <div class="header-area">
         <div class="main-header ">
-            <div class="header-top d-none d-lg-block"style="background-color:#b9ddfe">
+            <div class="header-top d-none d-lg-block">
                 <!-- Left Social -->
                 <div class="header-left-social">
                     <!--<ul class="header-social">    
@@ -16,17 +15,17 @@
                 <div class="container">
                     <div class="col-xl-12">
                         <div class="row d-flex justify-content-between align-items-center"style="color:black">
-                            <div class="header-info-left"style="font-color:black;font-size20px;">
+                            <div class="header-info-left" >
                                 <ul>     
                                     <li>needhelp@gmail.com</li>
                                     <li>666 7475 25252</li>
                                 </ul>
                             </div>
-                            <div class="header-info-right"style="background-color:;padding-right:25px;font-color:blue;font-size:20px">
+                            <div class="header-info-right">
                                 <ul>    
                                    
-                                    <li><a [routerLink]="['/login']"><i class="ti-user"style="font-color:black"></i>Login</a></li>
-                                    <li><a [routerLink]="['/register']"><i class="ti-lock"></i>Register</a></li>
+                                    <li><a  class="btn btn-link"  (click)="_authservice.logOutUser()" *ngIf="_authservice.loggedIn()"><i class="ti-user"></i>Logout</a></li>
+                                    <!--<li><a href="#"><i class="ti-lock"></i>Register</a></li>-->
                                 </ul>
                             </div>
                         </div>
@@ -50,10 +49,8 @@
                                 <ul id="navigation">                                                                                          
                                     <li><a [routerLink]="['/']">Home</a></li>
                                     <li><a [routerLink]="['/about']">About</a></li>
-                                    <li><a href="courses.html">Courses</a></li>
-                                    <li><a href="instructor.html">Instructors</a></li>
-                                    
-                                    
+                                    <li><a href="courses.html">MyCourses</a></li>
+                                 <!--   <li><a [routerLink]="['/facilitator']">Instructors</a></li>-->
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
                             </nav>
@@ -78,3 +75,6 @@
     </div>
     <!-- Header End -->
 </header>
+<form>
+    <button class="btn btn-dark"></button>
+</form>

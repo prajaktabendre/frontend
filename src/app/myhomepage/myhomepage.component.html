@@ -49,15 +49,10 @@
                                 <ul id="navigation">                                                                                          
                                     <li><a [routerLink]="['/']">Home</a></li>
                                     <li><a [routerLink]="['/about']">About</a></li>
-                                    <li><a href="courses.html">Courses</a></li>
-                                    <li><a [routerLink]="['/uploadvideo']">Instructors</a></li>
-                                    <li><a href="blog.html">Blog</a>
-                                        <ul class="submenu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog_details.html">Blog Details</a></li>
-                                            <li><a href="elements.html">Element</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="courses.html">MyCourses</a></li>
+                                    <li><a (click)="check()">Become Instructor</a>
+                                     </li>
+                                   
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
                             </nav>
@@ -65,7 +60,7 @@
                         <!-- Header-btn -->
                         <div class="header-search d-none d-lg-block">
                             <form action="#" class="form-box f-right ">
-                                <input type="text" name="Search" placeholder="Search Courses">
+                                <input type="text" name="Search" #myinput [(ngModel)]="coursename" (input)="Search()" placeholder="Search Courses">
                                 <div class="search-icon">
                                     <i class="fas fa-search special-tag"></i>
                                 </div>
@@ -120,12 +115,12 @@
                 <!-- Single course -->
                 <div class="single-course mb-40">
                     <div class="course-img">
-                        <img src="{{tempCourses.image_url}}" alt="">
+                        <img src="{{tempCourses.imageUrl}}" alt="">
                     </div>
                     <div class="course-caption">
                         <div class="course-cap-top">
                             
-                            <h4><a href="#">{{tempCourses.coursetitle}}</a></h4>
+                            <h4><a href="#">{{tempCourses.courseTitle}}</a></h4>
                         </div>
                         <div class="course-cap-mid d-flex justify-content-between">
                             <div class="course-ratting">
@@ -142,7 +137,7 @@
                                 <li><i class="ti-user"></i> 562</li>
                                 <li><i class="ti-heart"></i> 562</li>
                             </ul>
-                            <span>Free</span>
+                           
                         </div>
                     </div>
                 </div>

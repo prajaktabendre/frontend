@@ -15,16 +15,23 @@ msg=''
 constructor(private _router:Router,private _service:RegistrationService) { }
 
   ngOnInit(): void {
+      
   }
 loginUser()
 {
  this._service.loginUserFromRemote(this.user).subscribe(
    data => {
+     
       localStorage.setItem('loggedInUser',this.user.email);
+      console.log(this.user.email);
+      console.log(this.user.id);
+      console.log(this.user.password);
       console.log("respone recieved");
+      this.getdetails();
       this.msg="Successful registration"
      // alert('SUCCESS!! :-');  
-      this._router.navigate(['/myhomepage'])
+     
+     
   
     },
       error => {
@@ -34,5 +41,14 @@ loginUser()
       }
   )
   //this._router.navigate(['/myhomepage'])
+}
+getdetails()
+{
+  this._service.getemp(this.user.email).subscribe(data=>{console.log(data)
+    this.user.id=data;
+    this._router.navigateByUrl('/myhomepage/:'+this.user.id);
+    this._service.idEvent(this.user.id);
+  },error=>console.log(error));
+
 }
 }

@@ -1,8 +1,11 @@
 export class Course {
-    coursetitle : string;
+    courseId:number;
+    courseTitle : string;
     instructor : string;
-    course_type : string;
-    course_brief : string;
-    
+    //course_type : string;
+    courseBrief : string;
+    numofChapters: number;
+facilatorId:number;
+    imageUrl:string;
  
 }
