@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 export class FacilitatorComponent implements OnInit {
  
   user:User;
+  id:any;
   Facilator:FacilitatorComponent;
   facilatorId:any;
   userIds:Subscription;
@@ -26,7 +27,7 @@ export class FacilitatorComponent implements OnInit {
       this.userIds =this._authservice.idsValue.subscribe(obj => {
         console.log("object value");
         console.log(obj);
-        this.facilatorId=obj;
+        this.id=obj;
   
   
    });
