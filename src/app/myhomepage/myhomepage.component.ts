@@ -20,7 +20,7 @@ export class MyhomepageComponent implements OnInit {
   username:string
   role:string
  
-  
+  coursename:any;
 
   constructor(public _authservice:RegistrationService,private courser:CourseService,private _router:ActivatedRoute,private _route:Router) {
     
@@ -61,7 +61,15 @@ export class MyhomepageComponent implements OnInit {
     )
   }
   
-    
+    Search()
+    {
+      if(this.coursename!==""){
+        this.co=this.co.filter(res=>{return res.courseTitle.toLocaleLowerCase().match(this.coursename.toLocaleLowerCase());
+        });
+      }else if(this.coursename==""){
+        this.ngOnInit();
+      }
+    }
   beFacilator()
   {
     this._authservice.getUserByEmail(this.users).subscribe(

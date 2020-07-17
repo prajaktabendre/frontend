@@ -61,7 +61,7 @@
                         <!-- Header-btn -->
                         <div class="header-search d-none d-lg-block">
                             <form action="#" class="form-box f-right ">
-                                <input type="text" name="Search" placeholder="Search Courses">
+                                <input type="text" name="Search" #myinput [(ngModel)]="coursename" (input)="Search()" placeholder="Search Courses">
                                 <div class="search-icon">
                                     <i class="fas fa-search special-tag"></i>
                                 </div>
