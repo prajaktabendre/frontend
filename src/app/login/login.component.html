@@ -1,0 +1,52 @@
+<app-header></app-header>
+<body>
+    
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url(./assets/images1/bg-01.jpg);">
+					<span class="login100-form-title-1">
+						Sign In
+					</span>
+				</div>
+
+				<form class="login100-form validate-form" #loginform="ngForm"(ngSubmit)="loginUser()">
+					
+					<div class="wrap-input100 validate-input m-b-26" >
+						<span class="label-input100">Email id</span>
+						<input class="input100" type="text" name="email" placeholder="Enter e-mail" [(ngModel)]="user.email" required
+						#email="ngModel" 
+						[class.is-invalid]="email.invalid && email.touched">
+						<div *ngIf="email.errors && email.invalid && email.touched">
+							<small class="text-danger" *ngIf="email.errors.required ">Email is required</small>
+							<small class="text-danger" *ngIf="email.errors.pattern">invalid email</small>
+					
+						  </div>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" >
+						<span class="label-input100">Password</span>
+						<input type="password" class="input100" name="password" placeholder="Please Enter password" [(ngModel)]="user.password" required #password="ngModel"
+      
+      [class.is-invalid]="password.invalid && password.touched"
+      >
+      <small class="text-danger" [class.d-none]="password.valid || password.untouched">password is required</small>
+    
+						<span class="focus-input100"></span>
+					</div>
+
+					
+
+					<div class="container-login100-form-btn" style="color: cornflowerblue;">
+						<button class="login100-form-btn" type="submit" >
+							Login
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+<app-footer></app-footer>

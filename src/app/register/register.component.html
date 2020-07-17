@@ -1,0 +1,118 @@
+<app-header></app-header>
+<body>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url(./assets/images3/signup-bg.jpg);">
+					<span class="login100-form-title-1">
+						Register
+					</span>
+                </div>
+                            
+                  
+                <form class="login100-form validate-form" #regform="ngForm"(ngSubmit)="registerUser()">
+					
+					<div class="wrap-input100 validate-input m-b-26" >
+						<span class="label-input100">Email id</span>
+						<input type="email" class="input100" placeholder="Enter email address" name="email" [(ngModel)]="user.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+    #email="ngModel"
+    [class.is-invalid]="email.invalid && email.touched">
+    <div *ngIf="email.errors && email.invalid && email.touched">
+        <small class="text-danger" *ngIf="email.errors.required ">Email is required</small>
+        <small class="text-danger" *ngIf="email.errors.pattern">Invalid email address</small>
+
+      </div>
+						<span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 validate-input m-b-26" >
+						<span class="label-input100">First Name</span>
+						<input class="input100" type="text" name="email" placeholder="Enter First Name" [(ngModel)]="user.first_name" required
+						#first_name="ngModel" 
+                        [class.is-invalid]="first_name.invalid && first_name.touched">
+                        <div *ngIf="first_name.errors && first_name.invalid && first_name.touched">
+                            <small class="text-danger" *ngIf="first_name.errors.required ">Firstname is required</small>
+                       
+						</div>
+						<span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 validate-input m-b-26" >
+						<span class="label-input100">Last Name</span>
+						<input class="input100" type="text" name="email" placeholder="Enter Last Name" [(ngModel)]="user.last_name" required
+						#last_name="ngModel" 
+                        [class.is-invalid]="last_name.invalid && last_name.touched">
+                        <div *ngIf="last_name.errors && last_name.invalid && last_name.touched">
+                            <small class="text-danger" *ngIf="last_name.errors.required ">Last name is required</small>
+                       
+						</div>
+						<span class="focus-input100"></span>
+                    </div>
+             <!--    <div class="wrap-input100 validate-input m-b-26" >
+                        <span class="label-input100">Role</span>
+                        <select id="role" name="role" [(ngModel)]="user.role">
+                            <option
+                            value="learner">Learner</option>
+                            <option value="Facilator">Facilator</option>
+                        </select>
+                        </div>-->
+                        
+
+                    
+                    <div class="wrap-input100 validate-input m-b-26" >
+						<span class="label-input100">Username</span>
+						<input class="input100" type="text" name="email" placeholder="Enter Username" [(ngModel)]="user.username" required
+						#username="ngModel" 
+						[class.is-invalid]="username.invalid && username.touched">
+						<div *ngIf="username.errors && username.invalid && username.touched">
+							<small class="text-danger" *ngIf="username.errors.required ">Username is required</small>
+							
+						  </div>
+						<span class="focus-input100"></span>
+                    </div>
+                   
+					<div class="wrap-input100 validate-input m-b-18" >
+						<span class="label-input100">Password</span>
+                        <input type="password" class="input100" name="password" placeholder="Enter password" [(ngModel)]="user.password" required pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" 
+                        #password="ngModel"
+                        [class.is-invalid]="password.invalid && password.touched">
+          
+          <!--<small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required</small>-->
+                    <div *ngIf="password.errors && password.invalid && password.touched">
+                        <small class="text-danger" *ngIf="password.errors.required ">password is required</small>
+                         <small class="text-danger" *ngIf="password.errors.pattern">Password must include-1. At least one upper case English letter
+                         <br>2.At least one lower case English letter
+                             <br>3.At least one digit
+                             <br>4.At least one special character
+                             <br>5.Minimum eight in length</small>   
+                    </div>
+
+						<span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 validate-input m-b-18" >
+						<span class="label-input100"> Confirm Password</span>
+						<input type="password" class="input100" name="cpassword" placeholder="Re-enter password" (ngModel)="user.password"  required #cpassword="ngModel"
+        
+						[class.is-invalid]="cpassword.invalid && cpassword.touched"
+						> <div *ngIf="cpassword.errors && cpassword.invalid && cpassword.touched">
+						  <small class="text-danger" *ngIf="cpassword.errors.required ">password confirmation is required</small></div>
+						  
+						<small class="text-danger" [class.d-none]="cpassword.value == password.value || cpassword.untouched">Password does not match</small>
+					  
+						<span class="focus-input100"></span>
+					</div>
+
+					
+
+					<div class="container-login100-form-btn" style="color: cornflowerblue;">
+						<button  [disabled]="regform.form.invalid" class="login100-form-btn" type="submit" >
+							Register
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>         
+                 
+                  <!--<small style="font-size:16px; cursor:pointer;text-decoration:underline;color:cornflowerblue " class="float-right btextual" [routerLink]="['/login']">Already have an account? LOGIN</small>-->
+                  
+
+</body>
