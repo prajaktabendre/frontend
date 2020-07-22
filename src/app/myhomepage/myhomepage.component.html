@@ -26,6 +26,8 @@
                                    
                                     <li><a>Welcome: {{username}}</a></li>
                                     <!--<li><a href="#"><i class="ti-lock"></i>Register</a></li>-->
+                                    <li><a  class="btn btn-link"  (click)="_authservice.logOutUser()" *ngIf="_authservice.loggedIn()"><i class="ti-user"></i>Logout</a></li>
+
                                 </ul>
                                
                                
@@ -74,13 +76,7 @@
                                 <!--<li><a href="#"><i class="ti-lock"></i>Register</a></li>-->
                            
                         </div>
-                        <div class="header-info-right">
-                            <ul>    
-                                       
-                                <li><a  class="btn btn-link"  (click)="_authservice.logOutUser()" *ngIf="_authservice.loggedIn()"><i class="ti-user"></i>Logout</a></li>
-                                <!--<li><a href="#"><i class="ti-lock"></i>Register</a></li>-->
-                           </ul>
-                            </div>
+                       
                        
                        
                            
@@ -131,13 +127,14 @@
                 <!-- Single course -->
                 <div class="single-course mb-40">
                     <div class="course-img">
-                        <img src="{{tempCourses.imageUrl}}" alt="">
+                      
+                      <a routerLink="/enrollcourse/{{tempCourses.courseId}}" ><img src="{{tempCourses.imageUrl}}" alt=""></a>
                     </div>
                     <div class="course-caption">
                         <div class="course-cap-top">
-                            
-                            <h4><a href="#">{{tempCourses.courseTitle}}</a></h4>
-                        </div>
+                           <a routerLink="/enrollcourse/{{tempCourses.courseId}}" > <h4>{{tempCourses.courseTitle}}</h4></a>
+                        <!--    <h4><button id="aaa" class="btn btn-space" (click)="viewcourse()" name={{tempCourses.courseTitle}}>{{tempCourses.courseTitle}}</button></h4>
+                        --></div>
                         <div class="course-cap-mid d-flex justify-content-between">
                             <div class="course-ratting">
                                 <i class="fas fa-star"></i>

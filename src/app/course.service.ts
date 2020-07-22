@@ -17,7 +17,7 @@ export class CourseService {
     return this.httpClient.post<any>(this.baseUrl+'/add/course/'+id,course)
   
   }
-  getCourseID(coursetitle:string):Observable<any>{
+  getCoursebyEmail(coursetitle:string):Observable<any>{
     console.log(coursetitle);
   return this.httpClient.get<any>(this.baseUrl+'/'+coursetitle)
   }
@@ -25,6 +25,11 @@ export class CourseService {
   getCourseById(id:number):Observable<any>{
     return this.httpClient.get<any>(this.baseUrl+'/facilators/get/'+id)
   }
+
+getcourseid(id:number):Observable<Course>{
+  const courseUrl = `${this.baseUrl}/get/${id}`;
+  return this.httpClient.get<Course>(courseUrl);
+}
   getCourse():Observable<Course[]>{
     //const searchurl=`http://localhost:8080/course/search/findByCategoryId?id=${theCategoryId}`;
     return this.httpClient.get<Course[]>(this.baseUrl+'/all')
