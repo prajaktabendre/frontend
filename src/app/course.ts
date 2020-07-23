@@ -8,6 +8,7 @@ export class Course {
 facilatorId:number;
     imageUrl:string;
     publishedDate:string;
+    //videoUrl:string;
   
  
 }

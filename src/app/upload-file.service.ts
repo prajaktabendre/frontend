@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { RegistrationService } from './registration.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UploadFileService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private _authservice:RegistrationService) { }
 pushFileToStorage(file: File):Observable<HttpEvent<{}>>{
  // pushFileToStorage(id:number,file: File): Observable<any> {
     const formdata: FormData = new FormData();
@@ -30,6 +31,12 @@ updateurl(file: File,id:number):Observable<any>{
   const formdata:FormData=new FormData();
   formdata.append('file',file);
   return this.http.put('http://localhost:8080/api/course/update/'+id,formdata);
+
+}
+updatevidurl(file: File,id:number):Observable<any>{
+  const formdata:FormData=new FormData();
+  formdata.append('file',file);
+  return this.http.put('http://localhost:8080/api/course/updatevideo/'+id,formdata);
 
 }
   getFiles(): Observable<any> {

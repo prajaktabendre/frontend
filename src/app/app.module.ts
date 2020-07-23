@@ -23,6 +23,7 @@ import { FacilatorComponent } from './facilator/facilator.component';
 import { CreateCourseComponent } from './create-course/create-course.component';
 import { DatePipe } from '@angular/common';
 import { AddChaperComponent } from './add-chaper/add-chaper.component';
+import { EnrollcourseComponent } from './enrollcourse/enrollcourse.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { AddChaperComponent } from './add-chaper/add-chaper.component';
     UploadvideoComponent,
     FacilatorComponent,
     CreateCourseComponent,
-    AddChaperComponent
+    AddChaperComponent,
+    EnrollcourseComponent
   ],
   imports: [
         BrowserModule,

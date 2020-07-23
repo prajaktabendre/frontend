@@ -19,9 +19,9 @@ export class MyhomepageComponent implements OnInit {
   public id:number
   username:string
   role:string
- 
+ cors=new Course;
   coursename:any;
-
+title:any;
   constructor(public _authservice:RegistrationService,private courser:CourseService,private _router:ActivatedRoute,private _route:Router) {
     
    }
@@ -56,6 +56,8 @@ export class MyhomepageComponent implements OnInit {
     this.courser.getCourse().subscribe(
       data =>{
         console.log(data);
+        this.title=this.cors.courseTitle;
+        console.log(this.cors.courseTitle)
         this.co=data;
       }
     )
@@ -95,7 +97,21 @@ export class MyhomepageComponent implements OnInit {
     
    }
     
-   
+   viewcourse()
+   {
+     this.cors.courseTitle=document.getElementById("aaa").getAttribute("name");
+    
+     this.courser.getCoursebyEmail(this.cors.courseTitle).subscribe(
+       data=>{
+         console.log(data);
+      this.id=data;
+       },error=>console.log(error)
+     )
+     console.log(this.cors.courseTitle)
+    localStorage.setItem('coursedetails',this.cors.courseTitle)
+    console.log(this.cors.courseTitle)
+    this._route.navigate(['/enrollcourse',this.cors.courseTitle])
+  }
   
    
   

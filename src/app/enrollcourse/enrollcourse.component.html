@@ -2,7 +2,7 @@
     <!-- Header Start -->
     <div class="header-area">
         <div class="main-header ">
-            <div class="header-top d-none d-lg-block">
+            <div class="header-top d-none d-lg-block" style="background-color:#b9ddfe">
                 <!-- Left Social -->
                 <div class="header-left-social">
                     <!--<ul class="header-social">    
@@ -22,12 +22,13 @@
                                 </ul>
                             </div>
                             <div class="header-info-right">
-                                <ul>    
-                                   
-                                    <li><a  class="btn btn-link"  (click)="_authservice.logOutUser()" *ngIf="_authservice.loggedIn()"><i class="ti-user"></i>Logout</a></li>
-                                    <!--<li><a href="#"><i class="ti-lock"></i>Register</a></li>-->
-                                </ul>
+                               <ul>
+                                <li><a  class="btn btn-link"  (click)="_authservice.logOutUser()" *ngIf="_authservice.loggedIn()"><i class="ti-user"></i>Logout</a></li>
+                            </ul>
+                               
+                               
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -49,8 +50,8 @@
                                 <ul id="navigation">                                                                                          
                                     <li><a [routerLink]="['/myhomepage']">Home</a></li>
                                     <li><a [routerLink]="['/about']">About</a></li>
-                                    <li><a [routerLink]="['/myhomepage']">Courses</a></li>
-                                    
+                                    <li><a href="courses.html">Courses</a></li>
+                                    <!--<li><a [routerLink]="['/uploadvideo']">Instructors</a></li>-->
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
                             </nav>
@@ -58,12 +59,26 @@
                         <!-- Header-btn -->
                         <div class="header-search d-none d-lg-block">
                             <form action="#" class="form-box f-right ">
-                                <input type="text" name="Search" placeholder="Search Courses">
+                                <input type="text" name="Search" #myinput [(ngModel)]="coursename" (input)="Search()" placeholder="Search Courses">
                                 <div class="search-icon">
                                     <i class="fas fa-search special-tag"></i>
                                 </div>
                             </form>
                         </div>
+                        <div  class="header-info-right">
+                               
+                                       
+                               
+                        </div>
+                        <div class="header-info-right">
+                            <ul>    
+                                       
+                                <!--<li><a href="#"><i class="ti-lock"></i>Register</a></li>-->
+                           </ul>
+                            </div>
+                       
+                       
+                           
                     </div>
                     <!-- Mobile Menu -->
                     <div class="col-12">
@@ -74,32 +89,46 @@
         </div>
     </div>
     <!-- Header End -->
-  </header>
-  <div class="main-content">
-   
-    <div class="container" style="width:400px">
-        <div style="color: navy; margin-bottom: 20px">
-          <h3>Upload Chapter Video</h3><br>
-          <h5></h5>
+</header>
+<div  class="row">
+    <div  class="col-md-6">
+<!-- Single course -->
+    <div class="container-fluid" ><br>
+        <h1 style="text-align: center; ">{{co.courseTitle}} </h1><br>
+        <div class="single-course mb-40">
+        <div class="course-img">
+            <table><tr>
+            <td style=" display: block;
+           height:380px; width:680px;"><img class="center" src="{{co.imageUrl}}" height="380px" width="480px" alt=""></td>
+            <td><button class="btn float-right" (click)="enroll(co)">Enroll course</button></td>
+        </tr></table>
+        </div></div>
+        <div class="course-caption">
+            <div class="course-cap-top">
+               <br><br>
+               by:{{co.instructor}}
+               <!--<h4><button id="aaa"  name="{{title}}">{{title}}</button></h4>-->
+             
+            </div>
+            <div style="text-align: center; " class="course-cap-mid d-flex justify-content-between">
+                <div class="course-ratting">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <ul><li>52 Review</li></ul>
+            </div>
+            <div style="align-content: center; " class="course-cap-bottom d-flex justify-content-between">
+                <ul>
+                   {{co.courseBrief}}
+                </ul>
+                <span>Free</span>
+            </div>
         </div>
-      
-      
-        <div *ngIf="currentFileUpload" class="progress">
-            <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
-              aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
-              {{progress.percentage}}%</div>
-          </div>
-          <br>
-          <label class="btn btn-default">
-            <input type="file" (change)="selectFile($event)">
-          </label>
-          <br>
-          <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
-          <br>
-        <br/>
-        <br/>
-      
-     <!--<app-list-upload></app-list-upload>-->
-    </div> 
     </div>
-    
+</div>
+</div>
+
+<app-footer></app-footer>

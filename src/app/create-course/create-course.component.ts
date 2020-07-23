@@ -51,7 +51,7 @@ export class CreateCourseComponent implements OnInit {
         console.log(data);
         console.log(this.corse.courseId)
         alert(' course Registered successfully');
-        this._route.navigate(['/uploadvideo'])
+        this._route.navigate(['/uploadimg'])
       },
       error =>
       {

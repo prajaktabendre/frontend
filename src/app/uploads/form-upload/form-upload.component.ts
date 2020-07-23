@@ -21,7 +21,7 @@ export class FormUploadComponent implements OnInit {
   
     ngOnInit(): void {
       this.thiscourse=new Course();
-      this.courseService.getCourseID(this.ctitle).subscribe(
+      this.courseService.getCoursebyEmail(this.ctitle).subscribe(
         data =>{
           console.log(data);
           

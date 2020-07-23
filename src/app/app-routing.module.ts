@@ -11,6 +11,7 @@ import { UploadvideoComponent } from './uploadvideo/uploadvideo.component';
 import { FacilatorComponent } from './facilator/facilator.component';
 import { CreateCourseComponent } from './create-course/create-course.component';
 import { AddChaperComponent } from './add-chaper/add-chaper.component';
+import { EnrollcourseComponent } from './enrollcourse/enrollcourse.component';
 //import { RegisterComponent } from './register/register.component';
 
 
@@ -20,15 +21,18 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'myhomepage',canActivate:[AuthGuard],component:MyhomepageComponent},
   {path:'register',component:RegisterComponent},
-  {path:'uploadvideo',component:UploadvideoComponent},
+  {path:'uploadimg',component:UploadvideoComponent},
   {path:'facilator/:id',canActivate:[AuthGuard],component:FacilatorComponent},
   {path:'create/:id',canActivate:[AuthGuard],component:CreateCourseComponent},
-  {path:'addchapter',canActivate:[AuthGuard],component:AddChaperComponent}
+  {path:'addchapter',canActivate:[AuthGuard],component:AddChaperComponent},
+  {path:'enrollcourse/:id',canActivate:[AuthGuard],component:EnrollcourseComponent}
  
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled', // Add options right here
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
